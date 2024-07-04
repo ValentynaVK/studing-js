@@ -1,13 +1,5 @@
-function slugify(title)
-    {
-    const titleLowerCase = title.toLowerCase();
-    const rez = titleLowerCase.split(" ");
-    return rez.join("-");
-    }
-    
-    
-    
-console.log(slugify("Arrays for begginers")); // "arrays-for-begginers"
-console.log(slugify("English for developer")); // "english-for-developer"
-console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
-console.log(slugify("How to become a JUNIOR developer in TWO WEEKS")); // "how-to-become-a-junior-developer-in-two-weeks"
+const name = "Генератор захисного поля";
+let price = 1000;
+console.log("Обрано «Генератор захисного поля», ціна за штуку 1000 кредитів");
+price = price + 1000;
+console.log("Обрано «Генератор захисного поля», ціна за штуку 2000 кредитів");

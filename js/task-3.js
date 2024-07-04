@@ -1,16 +1,10 @@
-function filterArray(numbers, value)
-{
-    let useful = [];
-    for (let i = 0; i < numbers.length; i++)
-    {       
-        if (numbers[i] > value) { useful.push(numbers[i]); } 
-    }
-    return useful;
+const ADMIN_PASSWORD = "jqueryismyjam";
+let message = prompt("Авторизуватися", "");
+if (message === null) {
+  console.log((message = "Скасовано користувачем"));
+} else if (message === ADMIN_PASSWORD) {
+  console.log((message = "Ласкаво просимо"));
+} else {
+  console.log((message = "Доступ заборонений, невірний пароль!"));
 }
-
-
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+alert(message);
