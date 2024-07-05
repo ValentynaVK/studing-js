@@ -2,6 +2,7 @@ let deliverTo = prompt(
   "Введіть назву вашої країни для розрахунку вартості доставки:"
 ).toLowerCase();
 let deliveryPrice;
+
 switch (deliverTo) {
   case "китай":
     deliveryPrice = 100;
@@ -22,6 +23,7 @@ switch (deliverTo) {
     alert("У вашій країні доставка недоступна");
     break;
 }
+
 if (deliveryPrice !== undefined) {
   console.log(
     `Доставка в ${deliverTo} буде коштувати ${deliveryPrice} кредитів.`
