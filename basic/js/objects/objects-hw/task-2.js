@@ -4,7 +4,28 @@
 // форматі "ім'я":"кількість задач".
 
 const findBestEmployee = function (employees) {
-  // твій код
+  let bestEmployee;
+  let max = 0;
+
+  for (const el in employees) {
+    if (employees[el] > max) {
+      bestEmployee = el;
+      max = employees[el];
+    }
+  }
+
+  return bestEmployee;
+  /*! 2 cпосіб */
+  // let bestEmployee;
+  // let max = 0;
+  // const arrayEmployees = Object.keys(employees); // ['ann', 'david', ...]
+  // for (const employee of arrayEmployees) {
+  //   if (employees[employee] > max) {
+  //     max = employees[employee];
+  //     bestEmployee = employee;
+  //   }
+  // }
+  // return bestEmployee;
 };
 
 /*

@@ -3,13 +3,13 @@
 // переданого в функцію, має вигляд "ім'я":"зарплата".
 
 const countTotalSalary = function (employees) {
-  const countTotalSalary = function (employees) {
-    let totalSalary = 0;
-    for (let employee in employees) {
-      totalSalary += employees[employee];
-    }
-    return totalSalary;
-  };
+  let totalSalary = 0;
+
+  for (let employee in employees) {
+    totalSalary += employees[employee];
+  }
+
+  return totalSalary;
 };
 
 /*
