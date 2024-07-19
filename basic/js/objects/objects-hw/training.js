@@ -12,9 +12,9 @@ const user = {
   },
 };
 
-user.getName();
-user.getProfile();
-user.getSettings();
+// user.getName();
+// user.getProfile();
+// user.getSettings();
 
 // function sayHello() {
 //   console.log(this);

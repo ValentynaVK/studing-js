@@ -11,59 +11,70 @@ const Transaction = {
   WITHDRAW: "withdraw",
 };
 
-/*
- * Кожна транзакція - це об'єкт з властивостями: id, type і amount
- */
-//! account.balance
 const account = {
-  // Поточний баланс рахунку
   balance: 0,
-
-  // Історія транзакцій
   transactions: [],
 
-  /*
-   * Метод створює і повертає об'єкт транзакції.
-   * Приймає суму і тип транзакції.
-   */
-  createTransaction(amount, type){
-    return {id, type, amount }
-  }
+  createTransaction(amount, type) {
+    const transaction = {
+      id: this.transactions.length + 1,
+      amount,
+      type,
+    };
 
-  /*
-   * Метод відповідає за додавання суми до балансу.
-   * Приймає суму танзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * після чого додає його в історію транзакцій
-   */
-  deposit(amount) {
-    
+    return transaction;
   },
 
-  /*
-   * Метод відповідає за зняття суми з балансу.
-   * Приймає суму танзакції.
-   * Викликає createTransaction для створення об'єкта транзакції
-   * після чого додає його в історію транзакцій.
-   *
-   * Якщо amount більше, ніж поточний баланс, виводь повідомлення
-   * про те, що зняття такої суми не можливо, недостатньо коштів.
-   */
-  withdraw(amount) {},
+  deposit(amount) {
+    this.balance += amount;
 
-  /*
-   * Метод повертає поточний баланс
-   */
-  getBalance() {},
+    const transactionDeposit = this.createTransaction(
+      amount,
+      Transaction.DEPOSIT
+    );
 
-  /*
-   * Метод шукає і повертає об'єкт транзакції по id
-   */
-  getTransactionDetails(id) {},
+    this.transactions.push(transactionDeposit);
+  },
 
-  /*
-   * Метод повертає кількість коштів
-   * певного типу транзакції з усієї історії транзакцій
-   */
-  getTransactionTotal(type) {},
+  withdraw(amount) {
+    if (amount > this.balance) {
+      return "Недостатньо коштів";
+    }
+
+    this.balance -= amount;
+    const transactionWithdraw = this.createTransaction(
+      amount,
+      Transaction.WITHDRAW
+    );
+
+    this.transactions.push(transactionWithdraw);
+  },
+
+  getBalance() {
+    return this.balance;
+  },
+
+  getTransactionDetails(id) {
+    return this.transactions[id - 1];
+  },
+
+  getTransactionTotal(type) {
+    let total = 0;
+
+    for (const transaction of this.transactions) {
+      if (transaction.type === type) {
+        total += transaction.amount;
+      }
+    }
+
+    return total;
+  },
 };
+
+console.log(account.deposit(100));
+console.log(account.withdraw(20));
+console.log(account.withdraw(10));
+console.log(account.withdraw(20));
+console.log(account.getBalance());
+console.log(account.getTransactionDetails(2));
+console.log(account.getTransactionTotal("withdraw"));

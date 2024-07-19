@@ -89,6 +89,9 @@ const mergeObjects = function (obj1, obj2) {
     merged[key] = obj2[key];
   }
   return merged;
+
+  // ! 2 спосіб
+  // return { ...obj1, ...obj2 };
 };
 
 /*
