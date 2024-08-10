@@ -84,10 +84,14 @@ const users = [
     age: 39,
   },
 ];
-// Отримати масив імен користувачів за статтю (поле `gender`).
 
-const getUsersWithGender = (users, genderToFind) => {
-  return users.filter(({ gender }) => gender === genderToFind);
+// Масив імен всіх користувачів у яких є друг із зазначеним ім'ям.
+
+const getUsersWithFriend = (users, friendName) => {
+  return users
+    .filter((user) => user.friends.includes(friendName))
+    .map((user) => user.name);
 };
 
-console.log(getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+console.log(getUsersWithFriend(users, "Briana Decker")); // [ 'Sharlene Bush', 'Sheree Anthony' ]
+console.log(getUsersWithFriend(users, "Goldie Gentry")); // [ 'Elma Head', 'Sheree Anthony' ]

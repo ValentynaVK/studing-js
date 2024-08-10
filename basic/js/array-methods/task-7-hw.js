@@ -84,10 +84,14 @@ const users = [
     age: 39,
   },
 ];
-// Отримати масив імен користувачів за статтю (поле `gender`).
 
-const getUsersWithGender = (users, genderToFind) => {
-  return users.filter(({ gender }) => gender === genderToFind);
+// Отримати загальну суму балансу (поле `balance`) всіх користувачів.
+const calculateTotalBalance = (users) => {
+  const totalBalance = users.reduce((acc, { balance }) => {
+    return acc + balance;
+  }, 0);
+
+  return totalBalance;
 };
 
-console.log(getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+console.log(calculateTotalBalance(users)); // 20916

@@ -84,10 +84,15 @@ const users = [
     age: 39,
   },
 ];
-// Отримати масив імен користувачів за статтю (поле `gender`).
 
-const getUsersWithGender = (users, genderToFind) => {
-  return users.filter(({ gender }) => gender === genderToFind);
+// Отримати масив користувачів, які потрапляють у вікову категорію від min до
+// max років (поле `age`).
+
+const getUsersWithAge = (users, min, max) => {
+  return users.filter(({ age }) => age >= min && age <= max);
 };
 
-console.log(getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+console.log(getUsersWithAge(users, 20, 30)); // [об'єкт Ross Vazquez, об'єкт Elma Head, об'єкт Carey Barr]
+
+console.log(getUsersWithAge(users, 30, 40));
+// [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Blackburn Dotson, об'єкт Sheree Anthony]

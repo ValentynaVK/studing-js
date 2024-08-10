@@ -1,4 +1,4 @@
-const users = [
+export const users = [
   {
     id: "701b29c3-b35d-4cf1-a5f6-8b12b29a5081",
     name: "Moore Hensley",
@@ -84,10 +84,3 @@ const users = [
     age: 39,
   },
 ];
-// Отримати масив імен користувачів за статтю (поле `gender`).
-
-const getUsersWithGender = (users, genderToFind) => {
-  return users.filter(({ gender }) => gender === genderToFind);
-};
-
-console.log(getUsersWithGender(users, "male")); // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
